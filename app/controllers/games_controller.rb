@@ -37,7 +37,7 @@ class GamesController < ApplicationController
       @score = 0
       @message = "Sorry but #{attempt} can't be built out of #{grid.join}"
     elsif word["found"]
-      @score = word["length"].to_f / time
+      @score = (10000 * word["length"].to_f / time).round(2)
       @message = "Congratulations, #{attempt} is a valid English word!"
     else
       @score = 0
